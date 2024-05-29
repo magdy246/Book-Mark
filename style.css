@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Pacifico-R';
+    src: url(webfonts/Pacifico-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Righteous-R';
+    src: url(webfonts/Righteous-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'PTSansCaption-R';
+    src: url(webfonts/PTSansCaption-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'PTSansCaption-B';
+    src: url(webfonts/PTSansCaption-Bold.ttf);
+}
+
+:root {
+    /* ^^^^^^^^^^COLORs^^^^^^^^^^ */
+    --bg-main: #F7ECDE;
+    --big-title: #352e28;
+    --font-color: #212529;
+    --btn-color: #d1512d;
+    --hover-color: #d1512d;
+    --btn-visit: #8a9e23;
+    --btn-delete: #d30820;
+    --secondry1-color: #000;
+    --secondry2-color: #fff;
+    --secondry3-color: #c7c7c7;
+    --input-color: rgba(209, 81, 45, 5);
+    /* ^^^^^^^^^^FONTs^^^^^^^^^^ */
+    --Pacifico-R: "Pacifico-R";
+    --Righteous-R: "Righteous-R";
+    --PTSansCaption-R: "PTSansCaption-R";
+    --PTSansCaption-B: "PTSansCaption-B";
+}
+
+::selection {
+    color: var(--bg-main);
+    background-color: var(--btn-color);
+}
+
+main {
+    background-color: var(--bg-main);
+}
+
+#H1 {
+    color: var(--big-title);
+    font-size: 50px;
+    font-family: var(--Pacifico-R);
+    z-index: 11;
+    overflow: hidden;
+}
+
+#H1::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: var(--hover-color);
+    border-radius: 10px;
+    transform: translateY(70%);
+    transition: all 0.8s;
+}
+
+#layer-h1:hover #H1::before {
+    transform: translateY(8%);
+}
+
+.secondary-div {
+    border: 2px dotted var(--secondry1-color);
+    border-inline: var(--bg-main);
+}
+
+#secondary-div h2 {
+    font-size: 25px;
+    font-family: var(--Righteous-R);
+    background-image: linear-gradient(to right, var(--btn-visit), var(--btn-color));
+    background-clip: text;
+    color: transparent;
+}
+
+section .form-control:focus {
+    box-shadow: 0 0 .7rem var(--input-color);
+    border-color: var(--btn-color);
+}
+
+section label {
+    font-family: var(--PTSansCaption-B);
+    color: var(--font-color);
+}
+
+#secondary-div button {
+    background: var(--btn-color);
+    font-family: var(--PTSansCaption-B);
+}
+
+#table .btn-visit {
+    background-color: var(--btn-visit);
+    font-family: var(--PTSansCaption-B);
+}
+
+#table .btn-visit:hover {
+    background-color: #a7c900;
+}
+
+#table .btn-delete {
+    background-color: var(--btn-delete);
+    font-family: var(--PTSansCaption-B);
+}
+
+#table .btn-delete:hover {
+    background-color: #ec001c;
+}
+
+.tr-table {
+    color: var(--font-color);
+    border: 1px solid var(--secondry3-color);
+    border-inline: var(--secondry2-color);
+    border-bottom: var(--secondry2-color);
+    font-family: var(--PTSansCaption-B);
+}
+
+@media (max-width:640px) {
+    #secondary-div h2 {
+        font-size: 20px;
+    }
+}
