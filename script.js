@@ -66,6 +66,7 @@ function getUpdate(i) {
 
 function updateItems() {
   arrayList[thisIndex].name = indexNumber.value;
+  arrayList[thisIndex].website = websiteName.value;
   showData(arrayList);
   storgeData();
   updateBtn.classList.add("d-none");
