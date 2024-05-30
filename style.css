@@ -105,6 +105,7 @@ section .form-control:focus {
     box-shadow: 0 0 1rem var(--input-color);
     border-color: var(--btn-color);
     background-color: var(--form-color);
+    color: var(--font-color);
 }
 
 section .form-control::placeholder {
@@ -113,6 +114,7 @@ section .form-control::placeholder {
 
 section .form-control {
     background-color: var(--form-color);
+    color: var(--font-color);
 }
 
 section label {
