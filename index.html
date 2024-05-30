@@ -27,27 +27,30 @@
                 <h2><i class="fa-solid fa-bookmark"></i> Bookmark your favorite sites <i
                         class="fa-solid fa-bookmark"></i></h2>
                 <div class="w-100">
-                    <label for="indexNumber" class="form-label"><i class="fa-solid fa-book-bookmark pe-2"></i>Site
+                    <label for="indexNumber" class="form-label mt-2"><i class="fa-solid fa-book-bookmark pe-2"></i>Site
                         Name</label>
                     <input id="indexNumber" type="text" class="form-control" placeholder="Bookmark Name">
                 </div>
                 <div class="w-100">
-                    <label for="websiteName" class="form-label"><i class="fa-solid fa-link pe-2"></i>Site URL</label>
+                    <label for="websiteName" class="form-label mt-2"><i class="fa-solid fa-link pe-2"></i>Site
+                        URL</label>
                     <input id="websiteName" type="url" class="form-control" placeholder="Website URL">
                 </div>
-                <button onclick="addWebsite()" class="btn text-white px-5 mt-3">Submit</button>
+                <button id="addBtn" onclick="addWebsite()" class="btn text-white px-5 mt-3">Submit</button>
+                <button id="updateBtn" onclick="updateItems()" class="btn text-white px-5 mt-3 d-none">Update</button>
             </div>
             <div class="w-100">
                 <label class="form-label"><i class="fa-solid fa-magnifying-glass pe-2"></i>Search Name</label>
                 <input oninput="searchByname(this.value)" type="text" class="form-control" placeholder="Search...">
             </div>
-            <table class="my-4 w-100 bg-white" id="table">
+            <table class="my-4 w-100 rounded-3" id="table">
                 <thead>
                     <tr>
                         <th class="p-2 text-center text-capitalize">Index</th>
                         <th class="p-2 text-center text-capitalize">Website Name</th>
                         <th class="p-2 text-center text-capitalize">Visit</th>
                         <th class="p-2 text-center text-capitalize">Delete</th>
+                        <th class="p-2 text-center text-capitalize">Update</th>
                     </tr>
                 </thead>
                 <tbody id="show-data" class="tr-table">

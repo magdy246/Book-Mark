@@ -26,22 +26,27 @@
 
 :root {
     /* ^^^^^^^^^^COLORs^^^^^^^^^^ */
-    --bg-main: #F7ECDE;
-    --big-title: #352e28;
-    --font-color: #212529;
-    --btn-color: #d1512d;
-    --hover-color: #d1512d;
-    --btn-visit: #8a9e23;
+    --bg-main: #000;
+    --big-title: #fdfdfd;
+    --font-color: #fdfdfd;
+    --form-color: #272727;
+    --btn-color: #16FF00;
+    --hover-bg-color: #d1512d;
+    --btn-visit: #E59934;
     --btn-delete: #d30820;
+    --btn-update: #0816d3;
     --secondry1-color: #000;
     --secondry2-color: #fff;
     --secondry3-color: #c7c7c7;
-    --input-color: rgba(209, 81, 45, 5);
     /* ^^^^^^^^^^FONTs^^^^^^^^^^ */
     --Pacifico-R: "Pacifico-R";
     --Righteous-R: "Righteous-R";
     --PTSansCaption-R: "PTSansCaption-R";
     --PTSansCaption-B: "PTSansCaption-B";
+    /* ^^^^^^^^^^OTHERs^^^^^^^^^^ */
+    --input-color: rgba(145, 241, 20, 5);
+    --box-shadow: 0px 0px 9px 0.5px var(--big-title);
+    --trunsition-S: 0.5s all;
 }
 
 ::selection {
@@ -73,14 +78,14 @@ main {
     bottom: 0;
     right: 0;
     left: 0;
-    background-color: var(--hover-color);
+    background-image: linear-gradient(to bottom, var(--btn-delete), var(--btn-color));
     border-radius: 10px;
     transform: translateY(70%);
     transition: all 0.8s;
 }
 
 #layer-h1:hover #H1::before {
-    transform: translateY(8%);
+    transform: translateY(10%);
 }
 
 .secondary-div {
@@ -91,14 +96,23 @@ main {
 #secondary-div h2 {
     font-size: 25px;
     font-family: var(--Righteous-R);
-    background-image: linear-gradient(to right, var(--btn-visit), var(--btn-color));
+    background-image: linear-gradient(to right, var(--btn-delete), var(--btn-color));
     background-clip: text;
     color: transparent;
 }
 
 section .form-control:focus {
-    box-shadow: 0 0 .7rem var(--input-color);
+    box-shadow: 0 0 1rem var(--input-color);
     border-color: var(--btn-color);
+    background-color: var(--form-color);
+}
+
+section .form-control::placeholder {
+    color: #fff5;
+}
+
+section .form-control {
+    background-color: var(--form-color);
 }
 
 section label {
@@ -106,27 +120,66 @@ section label {
     color: var(--font-color);
 }
 
-#secondary-div button {
+#addBtn {
     background: var(--btn-color);
     font-family: var(--PTSansCaption-B);
+    transition: var(--trunsition-S);
+}
+
+#addBtn:hover {
+    font-family: var(--PTSansCaption-B);
+    box-shadow: var(--box-shadow);
+}
+
+#updateBtn {
+    background: var(--btn-update);
+    font-family: var(--PTSansCaption-B);
+    transition: var(--trunsition-S);
+}
+
+#updateBtn:hover {
+    font-family: var(--PTSansCaption-B);
+    box-shadow: var(--box-shadow);
+}
+
+#table {
+    background-color: var(--form-color);
 }
 
 #table .btn-visit {
     background-color: var(--btn-visit);
     font-family: var(--PTSansCaption-B);
+    transition: var(--trunsition-S);
 }
 
 #table .btn-visit:hover {
-    background-color: #a7c900;
+    box-shadow: var(--box-shadow);
 }
 
 #table .btn-delete {
     background-color: var(--btn-delete);
     font-family: var(--PTSansCaption-B);
+    transition: var(--trunsition-S);
 }
 
+
 #table .btn-delete:hover {
-    background-color: #ec001c;
+    box-shadow: var(--box-shadow);
+}
+
+#table .btn-update {
+    background-color: var(--btn-update);
+    font-family: var(--PTSansCaption-B);
+    transition: var(--trunsition-S);
+}
+
+#table .btn-update:hover {
+    font-family: var(--PTSansCaption-B);
+    box-shadow: var(--box-shadow);
+}
+
+thead {
+    color: var(--font-color);
 }
 
 .tr-table {
@@ -139,6 +192,24 @@ section label {
 
 @media (max-width:640px) {
     #secondary-div h2 {
-        font-size: 17px;
+        font-size: 18px;
+    }
+
+    #table .btn-update {
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #table .btn-visit {
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #table .btn-delete {
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
     }
 }
