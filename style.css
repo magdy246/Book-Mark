@@ -89,7 +89,7 @@ main {
 }
 
 .secondary-div {
-    border: 2px dotted var(--secondry1-color);
+    border: 2px dotted var(--form-color);
     border-inline: var(--bg-main);
 }
 
