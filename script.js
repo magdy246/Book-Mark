@@ -22,7 +22,7 @@ function addWebsite() {
 
 function showData(array) {
   field = ``;
-  for (i = 1; i < array.length; i++)
+  for (i = 0; i < array.length; i++)
     field += `<tr class="tr-table">
         <td class="p-2 text-center">${arrayList.indexOf(array[i])}</td>
         <td class="p-2 text-center">${array[i].name}</td>
