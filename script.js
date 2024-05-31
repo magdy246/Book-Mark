@@ -24,7 +24,7 @@ function showData(array) {
   field = ``;
   for (i = 0; i < array.length; i++)
     field += `<tr class="tr-table">
-        <td class="p-2 text-center">${arrayList.indexOf(array[i])}</td>
+        <td class="p-2 text-center">${arrayList.indexOf(array[i]) + 1}</td>
         <td class="p-2 text-center">${array[i].name}</td>
         <td class="p-2 text-center"><a class="text-decoration-none" href="https://${
           array[i].website
