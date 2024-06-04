@@ -2,6 +2,8 @@ var indexNumber = document.getElementById("indexNumber");
 var websiteName = document.getElementById("websiteName");
 var addBtn = document.getElementById("addBtn");
 var updateBtn = document.getElementById("updateBtn");
+var classModal = document.getElementById("staticBackdrop");
+var closeModal = document.getElementById("closeBtn");
 var thisIndex;
 var arrayList = [];
 if (localStorage.getItem("arrayList") != null) {
@@ -10,14 +12,19 @@ if (localStorage.getItem("arrayList") != null) {
 }
 
 function addWebsite() {
-  var items = {
-    name: indexNumber.value,
-    website: websiteName.value,
-  };
-  arrayList.push(items);
-  hideData();
-  showData(arrayList);
-  storgeData();
+  if (validated() == true) {
+    var items = {
+      name: indexNumber.value,
+      website: websiteName.value,
+    };
+    arrayList.push(items);
+    hideData();
+    removeClasses();
+    showData(arrayList);
+    storgeData();
+  } else {
+    openModal();
+  }
 }
 
 function showData(array) {
@@ -65,13 +72,18 @@ function getUpdate(i) {
 }
 
 function updateItems() {
-  arrayList[thisIndex].name = indexNumber.value;
-  arrayList[thisIndex].website = websiteName.value;
-  showData(arrayList);
-  storgeData();
-  updateBtn.classList.add("d-none");
-  addBtn.classList.remove("d-none");
-  hideData();
+  if (validated() == true) {
+    arrayList[thisIndex].name = indexNumber.value;
+    arrayList[thisIndex].website = websiteName.value;
+    showData(arrayList);
+    storgeData();
+    updateBtn.classList.add("d-none");
+    addBtn.classList.remove("d-none");
+    hideData();
+    removeClasses();
+  } else {
+    openModal();
+  }
 }
 
 function searchByname(serachValue) {
@@ -81,4 +93,64 @@ function searchByname(serachValue) {
       serachList.push(arrayList[i]);
     }
   showData(serachList);
+}
+
+function validated() {
+  var indexNumberRegex = /^[a-z0-9_-]{3,15}$/;
+  var websiteNameRegex =
+    /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{2,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)/;
+
+  if (indexNumberRegex.test(indexNumber.value) == false) {
+    return false;
+  } else if (websiteNameRegex.test(websiteName.value) == false) {
+    return false;
+  }
+  return true;
+}
+
+function removeClasses() {
+  if (indexNumber.value == "") {
+    indexNumber.classList.remove("is-valid");
+    indexNumber.classList.remove("is-invalid");
+  }
+  if (websiteName.value == "") {
+    websiteName.classList.remove("is-valid");
+    websiteName.classList.remove("is-invalid");
+  }
+}
+
+/*******************************Anouther step to validate********************************/
+/*you should add {oninput="validaiton(this)"} in input in html it's mean spacify this id*/
+/****************************************************************************************/
+
+function validaiton(websites) {
+  var websitesRegex = {
+    indexNumber: /^[a-z0-9_-]{3,15}$/,
+    websiteName:
+      /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{2,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)/,
+  };
+  regex = websitesRegex[websites.id].test(websites.value);
+
+  if (regex == true) {
+    websites.classList.add("is-valid");
+    websites.classList.remove("is-invalid");
+    return true;
+  } else {
+    websites.classList.add("is-invalid");
+    websites.classList.remove("is-valid");
+    return false;
+  }
+}
+
+/*Modal Action*/ 
+function openModal() {
+  classModal.classList.remove("d-none");
+  classModal.classList.add("d-block");
+  classModal.classList.add("bg-black");
+  classModal.classList.add("bg-opacity-75");
+}
+
+function closeBtn() {
+  classModal.classList.add("d-none");
+  classModal.classList.remove("d-block");
 }

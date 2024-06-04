@@ -24,6 +24,11 @@
     src: url(webfonts/PTSansCaption-Bold.ttf);
 }
 
+@font-face {
+    font-family: 'BreeSerif-R';
+    src: url(webfonts/BreeSerif-Regular.ttf);
+}
+
 :root {
     /* ^^^^^^^^^^COLORs^^^^^^^^^^ */
     --bg-main: #000;
@@ -31,6 +36,7 @@
     --font-color: #fdfdfd;
     --form-color: #272727;
     --btn-color: #16FF00;
+    --btn1-color: #02b638;
     --hover-bg-color: #d1512d;
     --btn-visit: #E59934;
     --btn-delete: #d30820;
@@ -43,6 +49,7 @@
     --Righteous-R: "Righteous-R";
     --PTSansCaption-R: "PTSansCaption-R";
     --PTSansCaption-B: "PTSansCaption-B";
+    --BreeSerif-R: "BreeSerif-R";
     /* ^^^^^^^^^^OTHERs^^^^^^^^^^ */
     --input-color: rgba(145, 241, 20, 5);
     --box-shadow: 0px 0px 9px 0.5px var(--big-title);
@@ -190,6 +197,38 @@ thead {
     border-inline: var(--secondry2-color);
     border-bottom: var(--secondry2-color);
     font-family: var(--PTSansCaption-B);
+}
+
+.circles span {
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+
+.circles span:nth-child(1) {
+    background-color: var(--btn-delete);
+}
+
+.circles span:nth-child(2) {
+    background-color: var(--btn-visit);
+}
+
+.circles span:nth-child(3) {
+    background-color: var(--btn1-color);
+}
+
+.pra-model {
+    font-family: var(--BreeSerif-R);
+}
+
+.li-model {
+    font-size: 18px;
+    font-family: var(--PTSansCaption-R);
+    font-weight: 300;
+}
+
+.li-model i {
+    color: var(--btn-delete);
 }
 
 @media (max-width:640px) {
