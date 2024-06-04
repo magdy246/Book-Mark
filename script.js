@@ -96,7 +96,7 @@ function searchByname(serachValue) {
 }
 
 function validated() {
-  var indexNumberRegex = /^[a-z0-9_-]{3,15}$/;
+  var indexNumberRegex = /^[A-Za-z0-9_-]{3,15}$/;
   var websiteNameRegex =
     /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{2,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)/;
 
@@ -125,7 +125,7 @@ function removeClasses() {
 
 function validaiton(websites) {
   var websitesRegex = {
-    indexNumber: /^[a-z0-9_-]{3,15}$/,
+    indexNumber: /^[A-Za-z0-9_-]{3,15}$/,
     websiteName:
       /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{2,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)/,
   };
@@ -142,7 +142,7 @@ function validaiton(websites) {
   }
 }
 
-/*Modal Action*/ 
+/*Modal Action*/
 function openModal() {
   classModal.classList.remove("d-none");
   classModal.classList.add("d-block");
