@@ -43,7 +43,7 @@ function showData(array) {
             class="fa-solid fa-trash-can p-0 pe-sm-2"></i>Delete</button></td>
 <td class="p-2 text-center"><button onclick="getUpdate(${i})"
         class="d-flex align-items-center mx-auto btn-update btn text-white"><i
-            class="fa-solid fa-cloud-upload-alt p-0 pe-sm-2"></i>Update</button></td>
+            class="fa-solid fa-pencil p-0 pe-sm-2"></i>Update</button></td>
             </tr>`;
   document.getElementById("show-data").innerHTML = field;
   storgeData();
