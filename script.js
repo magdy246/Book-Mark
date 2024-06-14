@@ -1,5 +1,6 @@
 var indexNumber = document.getElementById("indexNumber");
 var websiteName = document.getElementById("websiteName");
+var searchInput = document.getElementById("searchinput");
 var addBtn = document.getElementById("addBtn");
 var updateBtn = document.getElementById("updateBtn");
 var classModal = document.getElementById("staticBackdrop");
@@ -22,6 +23,7 @@ function addWebsite() {
     removeClasses();
     showData(arrayList);
     storgeData();
+    hideDataSearch();
   } else {
     openModal();
   }
@@ -29,7 +31,8 @@ function addWebsite() {
 
 function showData(array) {
   field = ``;
-  for (i = 0; i < array.length; i++)
+  for (i = 0; i < array.length; i++) {
+    var currentArray = arrayList.indexOf(array[i]);
     field += `<tr class="tr-table">
         <td class="p-2 text-center">${arrayList.indexOf(array[i]) + 1}</td>
         <td class="p-2 text-center">${array[i].name}</td>
@@ -38,13 +41,14 @@ function showData(array) {
         }"><button onclick="visitItem()"
         class="d-flex align-items-center mx-auto btn-visit btn text-white"><i
             class="fa-solid fa-eye p-0 pe-sm-2"></i>Visit</button></a></td>
-<td class="p-2 text-center"><button onclick="deleteItem(${i})"
+<td class="p-2 text-center"><button onclick="deleteItem(${currentArray})"
         class="d-flex align-items-center mx-auto btn-delete btn text-white"><i
             class="fa-solid fa-trash-can p-0 pe-sm-2"></i>Delete</button></td>
-<td class="p-2 text-center"><button onclick="getUpdate(${i})"
+<td class="p-2 text-center"><button onclick="getUpdate(${currentArray})"
         class="d-flex align-items-center mx-auto btn-update btn text-white"><i
             class="fa-solid fa-pencil p-0 pe-sm-2"></i>Update</button></td>
             </tr>`;
+  }
   document.getElementById("show-data").innerHTML = field;
   storgeData();
 }
@@ -52,6 +56,10 @@ function showData(array) {
 function hideData(config) {
   indexNumber.value = config ? config.name : null;
   websiteName.value = config ? config.website : null;
+}
+
+function hideDataSearch() {
+  searchInput.value = "";
 }
 
 function storgeData() {
@@ -62,6 +70,7 @@ function deleteItem(i) {
   arrayList.splice(i, 1);
   storgeData();
   showData(arrayList);
+  hideDataSearch();
 }
 
 function getUpdate(i) {
@@ -81,6 +90,7 @@ function updateItems() {
     addBtn.classList.remove("d-none");
     hideData();
     removeClasses();
+    hideDataSearch();
   } else {
     openModal();
   }
